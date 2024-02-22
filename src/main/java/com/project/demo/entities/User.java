@@ -4,8 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_user")
@@ -22,6 +25,9 @@ public class User implements Serializable {
   private String phone;
   private String password;
 
+  @OneToMany(mappedBy = "client")
+  private List<Order> orders = new ArrayList<>();
+
   public User() {}
 
   public User(
@@ -36,6 +42,10 @@ public class User implements Serializable {
     this.email = email;
     this.phone = phone;
     this.password = password;
+  }
+
+  public List<Order> getOrders() {
+    return orders;
   }
 
   public Long getId() {
