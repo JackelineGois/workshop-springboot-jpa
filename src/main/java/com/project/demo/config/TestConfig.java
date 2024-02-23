@@ -1,8 +1,10 @@
 package com.project.demo.config;
 
+import com.project.demo.entities.Category;
 import com.project.demo.entities.Order;
 import com.project.demo.entities.User;
 import com.project.demo.entities.enums.OrderStatus;
+import com.project.demo.repositories.CategoryRepository;
 import com.project.demo.repositories.OrderRepository;
 import com.project.demo.repositories.UserRepository;
 import java.time.Instant;
@@ -21,6 +23,9 @@ public class TestConfig implements CommandLineRunner {
 
   @Autowired
   private OrderRepository orderRepository;
+
+  @Autowired
+  private CategoryRepository categoryRepository;
 
   @Override
   public void run(String... args) throws Exception {
@@ -60,5 +65,11 @@ public class TestConfig implements CommandLineRunner {
 
     userRepository.saveAll(Arrays.asList(u1, u2));
     orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+    Category cat1 = new Category(null, "Electronics");
+    Category cat2 = new Category(null, "Books");
+    Category cat3 = new Category(null, "Computers");
+
+    categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
   }
 }
