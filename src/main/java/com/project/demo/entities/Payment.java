@@ -1,5 +1,6 @@
 package com.project.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,6 +10,8 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.Instant;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "tb_payment")
@@ -25,6 +28,7 @@ public class Payment implements Serializable {
   //classe dependente
   @OneToOne
   @MapsId
+  @JsonIgnore
   private Order order;
 
   public Payment() {}
