@@ -8,9 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "tb_order")
@@ -34,6 +39,10 @@ public class Order implements Serializable {
   private User client;
 
   private Integer orderStatus;
+
+  @OneToMany(mappedBy = "id.order")
+  @Fetch(FetchMode.JOIN)
+  private Set<OrderItem> items = new HashSet<>();
 
   public Order() {}
 
@@ -76,6 +85,10 @@ public class Order implements Serializable {
     if (orderStatus != null) {
       this.orderStatus = orderStatus.getCode();
     }
+  }
+
+  public Set<OrderItem> getItems() {
+    return items;
   }
 
   @Override

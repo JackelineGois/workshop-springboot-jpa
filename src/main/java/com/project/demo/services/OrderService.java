@@ -14,7 +14,12 @@ public class OrderService {
   private OrderRepository repository;
 
   public List<Order> findAll() {
-    return repository.findAll();
+    try {
+      return repository.findAll();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+    return null;
   }
 
   public Order findById(Long id) {
