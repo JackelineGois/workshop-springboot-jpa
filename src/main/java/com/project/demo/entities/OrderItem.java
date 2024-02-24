@@ -13,6 +13,7 @@ public class OrderItem implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  // Atributo identificador que é correspondente a chave primária
   @EmbeddedId
   private OrderItemPk id = new OrderItemPk();
 

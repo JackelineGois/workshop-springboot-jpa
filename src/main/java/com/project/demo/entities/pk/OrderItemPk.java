@@ -7,6 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 
+//Classe Auxiliar de chave primaria composta e vai ter uma referência com as classes Product e Order;
 @Embeddable
 public class OrderItemPk implements Serializable {
 

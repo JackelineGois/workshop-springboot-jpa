@@ -31,6 +31,7 @@ public class Product implements Serializable {
   private Double price;
   private String imgUrl;
 
+  //Criei a associação many to many entre os produtos e as categorias, criei uma lista Set<Categories> para associar essa classe com a classe category e usei o JoinTable para inserir esses dados em uma tabela com o nome tb_product_category, no qual vão ter duas colunas com as duas chaves extrangeiras category_id e product_id;
   @ManyToMany
   @Fetch(FetchMode.JOIN)
   @JoinTable(
