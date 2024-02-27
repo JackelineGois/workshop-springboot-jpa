@@ -45,17 +45,14 @@ In the pom.xml file add the dependencies to provide support for developing JPA (
 Create a resources folder to place resources not related to the source code and then create the application-test.properties file that will be responsible for configuring the database for your test environment with the H2 database in memory with JPA.
 ```
 -DATASOURCE 
-spring.datasource.driverClassName=org.h2.Driver 
-spring.datasource.url=jdbc:h2:mem:testdb 
-spring.datasource.username=sa 
-spring.datasource.password= 
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
 - H2 CLIENT 
 spring.h2.console.enabled=true 
 spring.h2.console.path=/h2-console 
 - JPA, SQL 
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect 
-spring.jpa.defer-datasource-initialization=true 
-spring.jpa.show-sql=true 
+spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 ```
 Within the same resource folder, create application.properties file to configure the application defaults.
