@@ -35,7 +35,31 @@ To help identify the folder path, you can press the tab key on your keyboard to 
 ```
 ./mvnw spring-boot:run 
 ```
-
+## Endpoints
+Open Postman and access the endpoints to send HTTP requests to the APIs and receive responses.
+### Method Get
+```
+http://localhost:8080/users
+http://localhost:8080/users/id
+http://localhost:8080/category
+http://localhost:8080/category/id
+http://localhost:8080/orders
+http://localhost:8080/orders/id
+http://localhost:8080/products
+http://localhost:8080/products/id
+```
+### Method Post
+```
+http://localhost:8080/users
+```
+### Method Delete
+```
+http://localhost:8080/users/id
+```
+### Method Put
+```
+http://localhost:8080/orders/id
+```
 
 # Autor
 Jackeline de Morais Gois
